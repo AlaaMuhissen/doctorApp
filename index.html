@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="js/doctorCards.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script  src="js/doctorCards.js"></script>
+    <script src="js/title.js"></script>
+
 </head>
 <body>
+<<<<<<< HEAD
+   
+    <script type="module">
+        const tittle = createTitle("My Doctor");
+        import {doctors} from "./db/doctorDetails.js"; 
+        for (let key in doctors){
+            const doctorCard = createDoctorCard(doctors[key].img , doctors[key].Name , doctors[key].Specialist , doctors[key].Active , doctors[key].Ranking);          
+            document.body.appendChild(doctorCard);
+        }
+    
+     </script>
+=======
     <script>
        const doctorCard = createDoctorCard("alla", "fkfk", "online", "4.7");
         document.body.appendChild(doctorCard);
     </script>
+>>>>>>> 626cab5b5ebe65af19ff06eed93a05e20c24dbee
 </body>
 </html>
