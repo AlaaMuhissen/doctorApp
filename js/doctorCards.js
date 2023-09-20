@@ -1,71 +1,133 @@
-function createDoctorCard(name, type, status, rate) {
+function createDoctorCard(img, name, type, status, rate) {
     // Create the main container for the card
-    let allCards = document.createElement("section");
+    const allCards = document.createElement("section");
     allCards.setAttribute("class", "cards");
 
     // Create the card container
-    let card = document.createElement("figcaption");
+    const card = document.createElement("figcaption");
     card.setAttribute("class", "card");
-    card.style.width = "60%";
-    card.style.height = "20%";
-    card.style.border = "1px solid rgb(179, 177, 177)";
+    card.style.width = "348px";
+    card.style.height = "112px";
+    card.style.border = "1px solid #DEDEDE";
     card.style.display = "flex";
+    card.style.borderRadius = "6px";
+    card.style.background = "white";
+    card.style.marginBottom = "8px";
+    card.style.position="relative";
+
 
     // Create the image container
-    let imgSec = document.createElement("figure");
+    const imgSec = document.createElement("figure");
     imgSec.setAttribute("class", "doctorImg");
-    imgSec.style.width = "60%";
-    imgSec.style.height = "20%";
-
+    imgSec.style.width = "64px";
+    imgSec.style.height = "96px";
+    imgSec.style.margin= "8px 8px";
+    
     // Create the image element
-    let docImg = document.createElement("img");
-    docImg.setAttribute("src", "https://leman-clinic.ch/wp-content/uploads/2018/11/02.jpg");
+    const docImg = document.createElement("img");
+    docImg.setAttribute("src", img);
     docImg.setAttribute("alt", "docPic");
     docImg.style.width = "100%";
     docImg.style.height = "100%";
+    docImg.style.borderRadius = "6px";
 
     // Create the description container
-    let descriptionSec = document.createElement("section");
+    const descriptionSec = document.createElement("section");
     descriptionSec.setAttribute("class", "description");
-    descriptionSec.style.display = "block";
+    
+    descriptionSec.style.position = "relative";
+    descriptionSec.style.marginLeft = "16px";
+    descriptionSec.style.marginTop = "16px";
+    descriptionSec.style.marginTop = "16px";
+
+   
+
+    const details = document.createElement("section");
+    details.setAttribute("class", "AllDocDetails");
+    details.style.height="45px";
+    details.style.width = "200px";
+    details.style.marginBottom = "10px";
+    
 
     // Create the doctor's name element
-    let doctorName = document.createElement("h1");
+    const doctorName = document.createElement("h1");
     doctorName.setAttribute("class", "name");
     doctorName.textContent = name;
+    doctorName.style.fontSize = "16px";
+    doctorName.style.fontWeight = "600";
+    doctorName.style.fontFamily= "Inter";
+    doctorName.style.margin = "0";
+    
 
     // Create the doctor's type element
-    let doctorType = document.createElement("h3");
+    const doctorType = document.createElement("h3");
     doctorType.setAttribute("class", "doctorType");
     doctorType.textContent = type;
+    doctorType.style.fontSize = "14px";
+    doctorType.style.fontWeight = "400";
+    doctorType.style.fontFamily= "Inter";
+    doctorType.style.color = "#AAAAAA";
+    doctorType.style.margin = "5px 0" ;
+   
+    
+    const otherDetails = document.createElement("section");
+    otherDetails.setAttribute("class", "otherDetails");
+    otherDetails.style.display="flex";
+    otherDetails.style.alignItems="center";
+    otherDetails.style.height="26px";
+    otherDetails.style.width="70px";
 
     // Create the doctor's status button
-    let docStatus = document.createElement("button");
+    const docStatus = document.createElement("button");
     docStatus.setAttribute("class", "status");
-    docStatus.textContent = status;
-    docStatus.style.backgroundColor = "rgb(128, 187, 235)";
-    docStatus.style.color = "white";
-    docStatus.style.width = "20%";
-    docStatus.style.height = "20%";
-
+    docStatus.style.width = "52px";
+    docStatus.style.height = "26px";
+    docStatus.style.fontSize ="12px";
+    docStatus.style.fontWeight = "400";
+    docStatus.style.padding = "4px 8px";
+    docStatus.style.marginRight = "16px";
+    docStatus.style.borderRadius = "4px";
+    docStatus.style.border = "1px";
+    if(status == true){
+        docStatus.textContent = "Online";
+        docStatus.style.backgroundColor = "#53A1FD";
+        docStatus.style.color = "white";
+    }
+    else{
+        docStatus.textContent = "Offline";
+        docStatus.style.backgroundColor = "#DEDEDE";
+        docStatus.style.color = "#8D8D8D";
+    }
+    
     // Create the star icon
-    let starIcon = document.createElement("span");
+    const starIcon = document.createElement("i");
     starIcon.setAttribute("class", "fa fa-star");
-    starIcon.style.color = "orange";
+    starIcon.style.color = "#F1C644";
+    starIcon.style.fontSize = "16px";
+    starIcon.style.marginRight = "5px";
+     
+    
+ 
 
     // Create the rating element
-    let rating = document.createElement("span");
+    const rating = document.createElement("span");
     rating.setAttribute("class", "rating");
     rating.textContent = rate;
-    rating.style.fontSize = "10px";
+    rating.style.fontSize = "14px";
+    rating.style.color= "#AAAAAA";
+    rating.style.fontWeight = "400";
+
 
     // Append elements to their respective containers
+
     imgSec.appendChild(docImg);
-    descriptionSec.appendChild(doctorName);
-    descriptionSec.appendChild(doctorType);
-    descriptionSec.appendChild(docStatus);
-    descriptionSec.appendChild(starIcon);
-    descriptionSec.appendChild(rating);
+    descriptionSec.appendChild(details);
+    details.appendChild(doctorName);
+    details.appendChild(doctorType);
+    descriptionSec.appendChild(otherDetails);
+    otherDetails.appendChild(docStatus);
+    otherDetails.appendChild(starIcon);
+    otherDetails.appendChild(rating);
     card.appendChild(imgSec);
     card.appendChild(descriptionSec);
     allCards.appendChild(card);

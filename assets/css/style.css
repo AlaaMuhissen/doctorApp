@@ -1,0 +1,26 @@
+.cards #card1{
+    width: 60%;
+    height: 20%;
+    border: 1px solid rgb(179, 177, 177);
+    display: flex;
+}
+
+.cards #card1 .doctorImg , .cards #card1 .doctorImg img {
+ height: 20%;
+ width: 20%;
+
+}
+
+.cards #card1 .status{
+    width: 20%;
+    height: 20%;
+    background-color: rgb(128, 187, 235);
+    color: aliceblue;
+}
+.cards #card1 .rating{
+    font-size: 10px;
+}
+
+.cards #card1 .description{
+    display: block;
+}
